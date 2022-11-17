@@ -1,0 +1,36 @@
+Công việc CODE chuyên nghiệp đôi khi không phải tự mình viết ra mà mình 
+biết chọn lọc các công cụ sẵn có phù hợp với yêu cầu của bản thân về và 
+tùy chỉnh sao cho phù hợp để hoàn thành công việc.
+
+Thông thường để xây dựng một website, người ta thường tìm đến một khuôn 
+mẫu sẵn có (Gần như là base code của sản phẩm) và từ đó xây dựng các chức năng.
+Có nhiều cấp độ của khuôn mẫu, có thể là boiler-plate (dạng đơn giản, chỉ có cấu
+trúc project và tích hợp sẵn một số công nghệ và chức năng như build tool, compile tool,
+eslint tool, hoặc các thư viện thường dùng ...), có thể là dạng template hoặc theme với
+thiết kế đã đầy đủ và chi tiết hơn. 
+Sẽ là tuyệt với nhất nếu như chúng ta tìm được một template hoặc theme tốt phù hợp với sản phẩm
+khi đó việc triển khai sẽ đơn giản và hiệu quả hơn nhiều lần. Tuy nhiên thường theme và template 
+đã được xây dựng tương đổi hoàn chỉnh và chi tiết, nên việc thêm bớt bổ sung tính năng lại có nhiều khó khăn.
+Một lựa chọn khác là boiler-plate, thì chúng ta thường có thể xây dựng mọi thứ gần như từ đầu, nhưng đổi lại
+là sự linh hoạt và chủ động.
+Tuy nhiên dù là chọn phương án bắt đầu thế nào, chúng ta cũng phải hiểu chuyện gì đang xảy ra bên trong 
+bộ công cụ mà chúng ta sử dụng. Các bài tập sau đây sẽ định hướng chúng ta xây dựng một trang web đơn giản 
+như file demo, với màn hình login và và homepage với các nội dung hết sức cơ bản.
+Trải qua các bài tập này sẽ giúp chúng ta nắm được cách xây dựng một giao diện React như thế nào thể hiện
+qua cách chúng ta phân chia thiết kế component và xác định trạng thái của nó ra sao.
+Sau đó là kiến thúc về redux để quản lí trạng thái theo cách chủ động và dự đoán được. Kết hợp cùng saga  
+để xử lí effect side lúc thực hiện cái hành động phải chờ đợi như gọi API.
+Bài tập tuy đơn giản nhưng để làm được, chúng ta sẽ phải đi qua tất cả các kiến thức về 
+React
+React-Router
+Redux
+Redux-saga
+Ngoài ra chúng ta còn tìm hiểu những gì đã sẵn có bên trong một boiler-plate có thể là webpack, babel, eslint,
+jest, React-Helmet, Localization, Lazy Loading ...
+Nắm chắc toàn bộ mọi thứ giúp chúng ta có thể xây dựng mọi loại sản phảm theo ý mình mà không gặp khó khăn hay trở ngại nào.
+Thực hiện CLEAN CODE, tổ chức code một cách chuyên nghiệp và hợp lí, sẽ giúp chúng ta thuận lợi hơn trong việc mở rộng chức
+năng, cải tiến, tối ưu sản phẩm, để tạo ra sản phẩm tốt nhất đến tay người dùng và khách hàng.
+Chi tiết từng bài tập mọi người đọc bên trong các file tiếp theo.
+
+Tương tự như bài cũ, hay tạo kho repo web-advance và thêm thinhnk55 vào.
+Sau đó chúng ta sẽ bắt đầu.

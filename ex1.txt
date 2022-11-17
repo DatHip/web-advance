@@ -1,0 +1,19 @@
+Tạo boiler-plate
+https://cansahin.gitbook.io/react-boilerplate-cra-template/quick-start
+Làm theo hướng dẫn ở đây vào tạo ra project có tên là web-advance-demo
+Chắc chắn rằng bạn đã chạy lệnh 
+yarn run cleanAndSetup
+Để project ở trạng thái đơn giản nhất.
+
+Sau đó hay giành thời gian tìm hiểu những gì có trong boiler-plate này:
+1. Các thành phần như webpack, babel, eslint, prettier, styleint được cấu hình thế nào trong dự án.
+2. Trong boiler-plate sử dụng như thư viện nào liên quan đến redux, vai trò của chúng để làm gì.
+3. UI nên được code ở khu vực nào
+4. Trong thư mục locales là nội dung gì. Hãy thử setup chữ My HomePage ở màn hình chính sang ít nhất 2 ngôn ngữ khác.
+5. Các module được lazy load trong boiler-plate thế nào.
+6. Có thể sử dụng những hình thức CSS nào để làm giao diện cho boiler-plate này.
+
+Và rất nhiều nội dung khác bạn có thể giành thời gian đọc và tìm hiểu ở đây
+https://cansahin.gitbook.io/react-boilerplate-cra-template/
+
+

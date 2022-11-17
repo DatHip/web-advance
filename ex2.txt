@@ -1,0 +1,38 @@
+UI First
+
+Chúng ta nên xây dựng UI trước tiên mà tạm thời bỏ qua logic liên quan đến nó.
+Ở bài tập này các bạn được yêu cầu xây dựng các giao diện của Login và HomePage.
+Sau đó setup trong router đường dẫn /login để tìm đến Login Page.
+Lúc làm giao diện các bạn hãy sử dụng i18next được tích hợp sẵn trong boiler-plate
+để làm đa ngôn ngữ cho các label, place holder, .v.v.
+
+Chúng nên làm i18next chứ không nên nghĩ để làm sau, vì chúng ta nên kết thúc phần công
+việc nào trọn vẹn phần công việc đó. Xử lí UI thì phải thật sự hoàn thiện UI sau đó sẽ chuyển 
+sang xử lí logic. Nếu chúng ta làm chưa hoàn thiện UI mà vội vàng đi xử lí logic, rất dễ 
+có hiện tượng bugs chồng bugs và việc sửa lỗi trở nên rối rắm, khó chịu.
+
+Thư viện hỗ trợ xây dựng UI là một công cụ tuyệt vời mà chúng ta nên dùng để mọi thứ trở nên dễ dàng hơn.
+Tuy nhiên như đã nói, trước khi sử dụng mội thứ gì đó bạn phải chắc chắn bạn hiểu về nó và dùng nó để làm 
+gì. Khi đã tin tưởng một bộ thư viện, hãy sẵn sàng giành nhiều thời gian đọc và khám phá những chức năng
+mà nó có thể mạng lại. Khi gặp một vấn đề gì cần giải quyết, hay ưu tiên lựa chọn giải pháp từ các bộ thư
+viện đã tích hợp sẵn. Khi thật sự không thể còn cách nào khác, lúc đó hãy nghĩ đến tìm giải pháp từ 
+các thư viện mới. Chúng tôi không khuyến khích bạn ngay lập tức CODE ra các component mà hãy thử tìm 
+kiếm nó ở đâu đó trước khi bắt đầu.
+
+Trong dự án này, tôi giới thiệu với các bạn bộ thư viện Mantine với hàng trăm component sẵn có và 
+sử dụng emotion (https://emotion.sh/docs/introduction) là cách viết CSS In JavaScript (giống Style Components nhưng ưu việt hơn)
+
+Tích hợp bằng dòng lệnh sau đây:
+yarn add @mantine/core @mantine/hooks @mantine/form @mantine/notifications @mantine/modals @mantine/nprogress @mantine/spotlight @mantine/carousel embla-carousel-react @mantine/dropzone @mantine/prism @mantine/dates dayjs @mantine/rte @emotion/react
+
+Hãy chắc chắn bạn đã tìm hiểu về nó trước khi áp dụng ở đây:
+https://mantine.dev/pages/getting-started/
+
+Chúc bạn áp dụng thông minh và hiệu quả.
+Demo chỉ là Wireframe, các bạn hãy sử dụng thiết kế của Mantine để làm mọi thứ đẹp hơn theo ý mình.
+Để làm bài tập này, các bạn hãy tạo 1 branch là ex2, sau đó code mọi thứ bên trong.
+Mỗi bài tập các bạn hãy tạo một branch để thuận lợi cho việc review.
+
+CSS in JavaScript được xem là xu hướng của cách viết CSS trong tương lai. Tuy nhiên để dùng được nó, những kiến thức cơ bản về CSS chưa
+bao giờ là lỗi thời. Do đó đừng bao giờ coi nhẹ việc rèn luyện mỗi ngày để vững chắc hơn nên tảng cơ bản trước khi làm được những điều to tát.
+
