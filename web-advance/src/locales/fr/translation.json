@@ -1,0 +1,12 @@
+{
+  "title": "Bienvenue",
+  "login": "Connexion",
+  "namePlaceHolder" : "Nom d'utilisateur",
+  "password": "Mot de passe",
+  "language" : "Langue",
+  "home" : "domicile",
+  "languages": ["Anglais", "Français", "Vietnamien"],
+  "en": "Anglais",
+  "fr": "Français",
+  "vn": "Vietnamien"
+}
