@@ -1,7 +1,6 @@
 
 import {
   configureStore,
-  getDefaultMiddleware,
   StoreEnhancer,
 } from '@reduxjs/toolkit';
 import { createInjectorsEnhancer } from 'redux-injectors';
@@ -16,7 +15,6 @@ export function configureAppStore() {
   // Create the store with saga middleware
   const middlewares = [sagaMiddleware];
 
-
   const enhancers = [
     createInjectorsEnhancer({
       createReducer,
@@ -26,7 +24,6 @@ export function configureAppStore() {
 
   const store = configureStore({
     reducer: createReducer(),
-    // middleware: [...getDefaultMiddleware(), ...middlewares],
     middleware: defaultMiddleware => [...defaultMiddleware(), ...middlewares],
     devTools: process.env.NODE_ENV !== 'production',
     enhancers,

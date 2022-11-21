@@ -1,21 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   createStyles,
   Header,
   Group,
-  Button,
   Box,
   Burger,
   Drawer,
   ScrollArea,
-  NativeSelect,
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { NavbarLeft } from '../Navbar/Loadable'
-import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
-import { selectUser } from 'store/app/user/slice/selector'
+import { SelectLanguage } from 'app/components/SelectLanguage'
+import { ButtonAuth } from 'app/components/Button'
 
 const useStyles = createStyles(theme => ({
   link: {
@@ -90,21 +87,6 @@ export function HeaderNav() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false)
   const { classes } = useStyles()
-  const [value, setValue] = useState('en')
-  const user = useSelector(selectUser)
-
-  const navigate = useNavigate()
-
-  const { t, i18n } = useTranslation()
-
-  const handleNavigate = () => {
-    if (!user) navigate('/login')
-  }
-
-  const handleChangeValue = e => {
-    setValue(e.currentTarget.label)
-    i18n.changeLanguage(e.currentTarget.value)
-  }
 
   return (
     <Box>
@@ -121,25 +103,8 @@ export function HeaderNav() {
           </Group>
 
           <Group className={classes.hiddenMobile}>
-            <Button onClick={handleNavigate} variant="default">
-              {user ? 'Logout' : t('login')}
-            </Button>
-            <NativeSelect
-              sx={{
-                display: 'flex',
-                marginLeft: '10px',
-                alignItems: 'center',
-                gap: '8px',
-              }}
-              value={value}
-              label={t('language')}
-              onChange={handleChangeValue}
-              data={[
-                { value: 'en', label: t('en') },
-                { value: 'fr', label: t('fr') },
-                { value: 'vn', label: t('vn') },
-              ]}
-            ></NativeSelect>
+            <ButtonAuth></ButtonAuth>
+            <SelectLanguage></SelectLanguage>
           </Group>
 
           <Burger
@@ -160,7 +125,7 @@ export function HeaderNav() {
         zIndex={1000000}
       >
         <ScrollArea sx={{ height: 'calc(100vh - 60px)' }} mx="-md">
-          <NavbarLeft isBody={false}></NavbarLeft>
+          <NavbarLeft onClose={closeDrawer} isBody={false}></NavbarLeft>
         </ScrollArea>
       </Drawer>
     </Box>

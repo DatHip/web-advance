@@ -15,7 +15,7 @@ import { useTranslation } from 'react-i18next'
 import { useForm } from '@mantine/form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { selectUser, selectUsername } from 'store/app/user/slice/selector'
+import { selectUser } from 'store/app/user/slice/selector'
 import { useUserSlice } from 'store/app/user/slice'
 
 const useStyles = createStyles(theme => ({
@@ -35,6 +35,11 @@ const useStyles = createStyles(theme => ({
 export function Login() {
   const { classes } = useStyles()
   const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { actions } = useUserSlice()
+  const user = useSelector(selectUser)
+
   const form = useForm({
     initialValues: {
       username: '',
@@ -42,24 +47,21 @@ export function Login() {
     },
   })
 
-  const dispatach = useDispatch()
-  const navigate = useNavigate()
-
-  const { actions } = useUserSlice()
   const handleSubmit = value => {
-    dispatach(
+    dispatch(
       actions.login({
         username: value.username,
         password: value.password,
       }),
     )
   }
-  const user = useSelector(selectUser)
+
   React.useEffect(() => {
+    console.log(user)
     if (user) {
       navigate('/')
     }
-  }, [user])
+  }, [navigate, user])
 
   return user ? (
     <div></div>
@@ -89,11 +91,7 @@ export function Login() {
               <form onSubmit={form.onSubmit(handleSubmit)}>
                 <div className="filed">
                   <TextInput
-                    icon={
-                      <ActionIcon>
-                        <IconUser></IconUser>
-                      </ActionIcon>
-                    }
+                    icon={<IconUser></IconUser>}
                     label={t('namePlaceHolder')}
                     variant="unstyled"
                     placeholder={t('namePlaceHolder')}
@@ -103,19 +101,10 @@ export function Login() {
                 <Space h={20}></Space>
                 <PasswordInput
                   mb={20}
-                  icon={
-                    <ActionIcon>
-                      <IconPassword></IconPassword>
-                    </ActionIcon>
-                  }
+                  icon={<IconPassword></IconPassword>}
                   label={t('password')}
                   variant="unstyled"
                   placeholder={t('password')}
-                  rightSection={
-                    <ActionIcon>
-                      <IconEye points="true"></IconEye>
-                    </ActionIcon>
-                  }
                   {...form.getInputProps('password')}
                 ></PasswordInput>
                 <Button

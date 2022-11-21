@@ -1,11 +1,10 @@
 import * as React from 'react'
-import { AppShell, Center, Container } from '@mantine/core'
+import { AppShell, Container } from '@mantine/core'
 import { FooterBasic } from 'app/layout/Footer'
 import { HeaderNav } from 'app/layout/Header/Loadable'
 import { NavbarLeft } from 'app/layout/Navbar/Loadable'
 import { Helmet } from 'react-helmet-async'
-import { useSelector } from 'react-redux'
-import { selectUser } from 'store/app/user/slice/selector'
+import { Outlet } from 'react-router-dom'
 
 const linkFooter = [
   {
@@ -39,7 +38,7 @@ export function HomePage() {
         footer={<FooterBasic links={linkFooter}></FooterBasic>}
       >
         <Container style={{ height: '100%' }}>
-          <Center style={{ width: '100%', height: '100%' }}>Demo Menu 3</Center>
+          <Outlet></Outlet>
         </Container>
       </AppShell>
     </>

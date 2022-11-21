@@ -45,8 +45,8 @@ export function FooterBasic({ links }: FooterSimpleProps) {
   ));
 
   return (
-    <Footer height={70}>
-      <Container className={classes.inner}>
+    <Footer  height={70}>
+      <Container sx={{minWidth:"250px"}} className={classes.inner}>
         <Group className={classes.links}>{items}</Group>
       </Container>
     </Footer>

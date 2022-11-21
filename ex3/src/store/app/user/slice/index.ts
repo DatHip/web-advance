@@ -2,17 +2,9 @@ import { createSlice } from 'utils/@reduxjs/toolkit'
 import { useInjectReducer, useInjectSaga } from 'redux-injectors'
 import { UserState } from './types'
 import useUserFromSaga from './saga'
+import { getLocal } from 'utils/getLocal'
 
-const getLocal = (key: string) => {
-  const storedValues = localStorage.getItem(key)
-  if (!storedValues) {
-    return null
-  } else {
-    return JSON.parse(storedValues)
-  }
-}
-
-export const initialState: UserState = getLocal('user') || {
+export const initialState: UserState = getLocal('users') || {
   user: false,
   loading: false,
   username: '',
@@ -41,10 +33,16 @@ const slice = createSlice({
       state.username = action.payload.username
       state.password = action.payload.password
       state.id = action.payload.id
-      localStorage.setItem('user', JSON.stringify(state))
+      localStorage.setItem('users', JSON.stringify(state))
     },
     loginFail: (state: UserState) => {
       state.loading = false
+    },
+    logout: state => {
+      state.user = false
+      state.username = ''
+      state.password = ''
+      state.id = 0
     },
   },
 })

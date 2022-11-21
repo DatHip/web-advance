@@ -5,8 +5,12 @@ import {
   IconKey,
   IconReceipt2,
   IconLogin,
+  IconHome,
 } from '@tabler/icons'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import { SelectLanguage } from 'app/components/SelectLanguage'
+import { ButtonAuth } from 'app/components/Button'
+import { useDisclosure } from '@mantine/hooks'
 
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef('icon')
@@ -56,6 +60,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
       padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
       borderRadius: theme.radius.sm,
       fontWeight: 500,
+      marginBottom: '10px',
 
       '&:hover': {
         backgroundColor:
@@ -99,31 +104,31 @@ const useStyles = createStyles((theme, _params, getRef) => {
 })
 
 const data = [
-  { link: '', label: 'Home', icon: null },
-  { link: '', label: 'Menu1', icon: IconReceipt2 },
-  { link: '', label: 'Menu2', icon: IconFingerprint },
-  { link: '', label: 'Menu3', icon: IconKey },
+  { link: '/', label: 'Home', icon: IconHome },
+  { link: '/home1', label: 'Menu1', icon: IconReceipt2 },
+  { link: '/home2', label: 'Menu2', icon: IconFingerprint },
+  { link: '/home3', label: 'Menu3', icon: IconKey },
 ]
 
-export function NavbarLeft({ isBody }) {
+export function NavbarLeft({ isBody, onClose = () => {} }) {
   const { classes, cx } = useStyles()
-  const [active, setActive] = useState('Billing')
+  const [active, setActive] = useState('Home')
 
   const links = data.map(item => (
-    <a
+    <NavLink
+      to={item.link}
       className={cx(classes.link, {
         [classes.linkActive]: item.label === active,
       })}
-      href={item.link}
       key={item.label}
       onClick={event => {
-        event.preventDefault()
         setActive(item.label)
+        onClose()
       }}
     >
       {item?.icon && <item.icon className={classes.linkIcon} stroke={1.5} />}
       <span>{item.label}</span>
-    </a>
+    </NavLink>
   ))
 
   return (
@@ -135,14 +140,17 @@ export function NavbarLeft({ isBody }) {
       <Navbar.Section>{links}</Navbar.Section>
       <Navbar.Section className={classes.footer}>
         {!isBody && (
-          <Link
-            to={'/login'}
-            className={classes.link}
-            onClick={event => event.preventDefault()}
-          >
-            <IconLogin className={classes.linkIcon} stroke={1.5} />
-            <span>Log In</span>
-          </Link>
+          <>
+            <Link
+              to={'/login'}
+              className={classes.link}
+              onClick={event => event.preventDefault()}
+            >
+              <IconLogin className={classes.linkIcon} stroke={1.5} />
+              <ButtonAuth></ButtonAuth>
+            </Link>
+            <SelectLanguage></SelectLanguage>
+          </>
         )}
       </Navbar.Section>
     </Navbar>
