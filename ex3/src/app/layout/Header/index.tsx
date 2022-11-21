@@ -98,7 +98,7 @@ export function HeaderNav() {
             className={classes.hiddenMobile}
           >
             <Link to={'/'} className={classes.link}>
-              Home
+              Logo
             </Link>
           </Group>
 
